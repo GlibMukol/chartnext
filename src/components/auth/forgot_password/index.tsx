@@ -8,9 +8,9 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 
-type TSForgotPasswordResponseStatus = 'sussess' | 'error'
+
+//TODO remove any
 const CForgotPassword = ({ submitHandler }: { submitHandler: any }) => {
-    const [sussess, setSuccess] = useState<TSForgotPasswordResponseStatus>()
     const form = useForm<TCForgotPAssordEmail>({
         resolver: zodResolver(ForgotPasswordFormShema),
         defaultValues: {
@@ -34,12 +34,12 @@ const CForgotPassword = ({ submitHandler }: { submitHandler: any }) => {
                         render={({ field }) => (
                             <FormItem>
                                 <FormControl>
-                                    <Input placeholder="m@example.com" {...field} />
+                                    <Input data-testid="forgot_password_input" placeholder="m@example.com" {...field} />
                                 </FormControl>
                             </FormItem>
                         )}
                     />
-                    <Button type="submit"> Send </Button>
+                    <Button data-testid="submit" type="submit" disabled={!form.formState.isValid}> Send </Button>
                 </div>
             </form>
         </Form>

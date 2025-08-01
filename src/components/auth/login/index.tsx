@@ -46,6 +46,7 @@ const CLogin = ({ handleSubmit }: { handleSubmit: (data: TLoginFormShema) => Pro
                                             <Input
                                                 {...field}
                                                 placeholder="m@example.com"
+                                                data-testid="login"
                                             />
                                         </FormControl>
                                     </FormItem>
@@ -68,14 +69,14 @@ const CLogin = ({ handleSubmit }: { handleSubmit: (data: TLoginFormShema) => Pro
                                             </Link>
                                         </div>
                                         <FormControl>
-                                            <Input {...field} />
+                                            <Input {...field} type="password" data-testid="password" />
                                         </FormControl>
                                     </>
                                 )}
                             />
                         </div>
                     </div>
-                    <Button type="submit" className="w-full mt-4">
+                    <Button type="submit" data-testid="login_submit" className="w-full mt-4">
                         Login
                     </Button>
                 </form>
